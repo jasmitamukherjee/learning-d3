@@ -13,6 +13,9 @@
     <ul>
 
     </ul>
+    <svg width="300px" height="300px">
+
+    </svg>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" integrity="sha512-vc58qvvBdrDR4etbxMdlTt4GBQk1qjvyORR2nrsPsFPyrs+/u5c3+1Ct6upOgdZoIl7eq6k3a1UPDSNAQi/32A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -25,6 +28,22 @@ d3.select('ul')
 .enter()
 .append('li')
 .text(hero => hero + "!");
+
+
+var numbers = [20,30,50,30,10,40]
+var barHeight = 40;
+d3.select('svg')
+.selectAll('rect')
+.data(numbers)
+.enter()
+.append('rect')
+.attr('width', d => d)
+.attr('height', barHeight - 4)
+.attr(
+    'transform' , (d,i)=> "translate(100,"+ i * barHeight+ " )"
+)
+
+
 </script>
 
 </body>
